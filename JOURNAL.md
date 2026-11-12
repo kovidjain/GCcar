@@ -15,7 +15,8 @@ I used ESP NOW to send the commands between the boards without needing a WiFi ro
 
 I also wanted to design the body myself in Fusion 360
 
-![Finished Car](assets/PHOTO-2026-10-23-01-56-13.jpg)
+![Circuit Diagram](assets/circuit-diagram.png)
+
 
 ## Stage 2 — Wiring everything
 
@@ -169,6 +170,6 @@ I kept the Arduino code CAD files and photos together so I could share the proje
 
 There are still a few things I could improve later but I got the main hand controlled car working
 
-![Chassis Reinforcement](assets/cad-reinforcement.png)
+![Finished Car](assets/PHOTO-2026-10-23-01-56-13.jpg)
 
 [Watch the Driving Video](assets/VIDEO-2026-10-23-02-05-10.mp4)
