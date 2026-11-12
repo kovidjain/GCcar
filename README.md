@@ -1,9 +1,9 @@
 
-# The Nonchalant
+# The GCcar
 
 ### A Hand Gesture Controlled Car Using ESP32
 
-The Nonchalant is a 4 wheel drive car that I made using ESP32 and a few sensors
+The GCcar is a 4 wheel drive car that I made using ESP32 and a few sensors
 
 I wanted to make something that I could control without using a normal remote
 
@@ -207,7 +207,6 @@ I have uploaded pretty much everything related to the project in the repository.
 - `assets` - Photos, circuit diagram and the video.
 - [JOURNAL.md](JOURNAL.md) - My build log where I wrote about making the car.
 
-Thats pretty much it for The Nonchalant.
 
 I started this project because I wanted to try controlling a car without using a normal remote. I thought using hand gestures would be intresting so I decided to give it a try.
 
