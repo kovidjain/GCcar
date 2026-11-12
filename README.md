@@ -132,80 +132,85 @@ I connected all the grounds together and powered the motors through the motor dr
 
 ![Circuit Diagram](assets/circuit-diagram.png)
 
-## 4 Code Setup
+## 4. Getting the Code Running
 
-I used Arduino IDE to upload the code to both ESP32 boards
+I used Arduino IDE for coding both the ESP32 boards. Since both of them had different jobs, I had to upload seperate codes.
 
-1. Install Arduino IDE
-2. Install the ESP32 board package
-3. Install the MPU9250_asukiaaa library
-4. Find the MAC address of the ESP32 on the car
-5. Open GestureController and change the carMAC value
-6. Upload GestureController to the hand controller
-7. Upload GestureCarReceiver to the car
-8. Open the serial monitor at 115200 baud
-9. Check if the boards are communicating
-10. Test the motors with the wheels off the ground
+The ESP32 on my hand reads the MPU9250 and sends the commands, while the one on the car recieves them and controls the motors.
 
-The MAC address in the controller code is only an example
+Before uploading I installed the ESP32 board package and the `MPU9250_asukiaaa` library.
 
-You need to replace it with the actual receiver MAC address
+For ESP NOW to work I needed the MAC address of the ESP32 on the car. I got the address and put it in the `carMAC` variable in my controller code.
 
-## 5 Car Design
+### How to set it up
 
-I used Fusion 360 to design the car
+1. Install Arduino IDE and ESP32 board package.
+2. Install the `MPU9250_asukiaaa` library.
+3. Find the MAC address of the ESP32 on the car.
+4. Open `GestureController` and change the `carMAC` to your ESP32 address.
+5. Upload `GestureController` to the hand controller.
+6. Upload `GestureCarReceiver` to the car.
+7. Open serial monitor at 115200 baud and check if both boards are communicating.
 
-I kept the design simple because I needed space for the motors battery and electronics
+One thing I would suggest is testing the motors without keeping the car on the ground, otherwise it might just start moving while your still checking stuff.
 
-The chassis uses 3D printed parts
+Also the MAC address in my code is just an example so you'll have to change it.
 
-I also exported the model as a STEP file
+## 5. Designing the Car
+
+I used Fusion 360 to make the car body.
+
+I didnt really plan anything too complicated. I just wanted a chassis that could fit the 4 motors, battery and all the electronics without making it too crowded.
+
+The main problem was fitting everything while still leaving some space for the wires.
+
+I ended up making a pretty basic design and used 3D printed parts for the chassis.
+
+This is how the model looks.
 
 ![Car 3D Model](assets/car-3d-model.svg)
 
-### Design Files
+I also uploaded the design files incase anyone wants to modify it or use it for their own project.
 
-- [Fusion 360 File](3D%20Cad/The%20Nonchalant%20%281%29.f3d)
+- [Fusion 360 Design](3D%20Cad/The%20Nonchalant%20%281%29.f3d)
 - [STEP File](3D%20Cad/The%20Nonchalant.step)
 
-## 6 Project Files
+## 6. Putting Everything Together and Testing
 
-I added the code photos CAD files and video to the project folder
+After assembling the car and uploading the codes I started testing everything.
 
-- `GestureController` has the code for the hand controller
-- `GestureCarReceiver` has the code for the car
-- `3D Cad` has the car design
-- `assets` has the photos diagram and video
-- [JOURNAL.md](JOURNAL.md) has the build notes
+First I checked if both ESP32 boards were communicating properly because without that the car wouldnt do anything.
 
-## 7 Testing
+Then I tried tilting my hand forward, left and right to check if the motors were responding.
 
-I tested the car by tilting my hand forward backward left and right
+I also tested the reverse mode. Instead of keeping my hand tilted backward to reverse, I made it so that tilting backward changes the mode. Tilting it backward again switches it back to normal.
 
-The controller sends the commands wirelessly and the car moves based on them
+After that I tested the ultrasonic sensor.
 
-I also tested the ultrasonic sensor by placing an object in front of the car
+I placed an object in front of the car to see if it detects it when the distance goes below 20 cm.
+
+I programmed it so the car stops, turns right for a short time and then stops again.
+
+I added this because I didnt want the car to just keep going forward and hit something everytime theres an obstacle.
 
 ### Demo Video
 
 [Watch the Driving Video](assets/VIDEO-2026-10-23-02-05-10.mp4)
 
-## 8 Things I Learned
+## 7. Project Files
 
-I learned how to connect two ESP32 boards using ESP NOW
+I have uploaded pretty much everything related to the project in the repository.
 
-I also got to work with the MPU9250 sensor and understand how its readings can be used to control something
+- `GestureController` - Code for the ESP32 on my hand.
+- `GestureCarReceiver` - Code for the ESP32 on the car.
+- `3D Cad` - Fusion 360 model and STEP file.
+- `assets` - Photos, circuit diagram and the video.
+- [JOURNAL.md](JOURNAL.md) - My build log where I wrote about making the car.
 
-I learned more about motor drivers and how to control the left and right wheels separately
+Thats pretty much it for The Nonchalant.
 
-I also got to use Fusion 360 for designing the car body
+I started this project because I wanted to try controlling a car without using a normal remote. I thought using hand gestures would be intresting so I decided to give it a try.
 
-## 9 Conclusion
+I got to learn quite a bit about ESP32, ESP NOW, sensors and motor control while making this.
 
-I made this car because I wanted to try controlling something using hand movements
-
-The main idea was to make a car that works without a normal remote
-
-This project gave me a chance to work with sensors wireless communication motors and 3D design
-
-I still have some ideas to improve it later
+Theres still a few things I wanna improve but for now I'm happy that I got the car working.
